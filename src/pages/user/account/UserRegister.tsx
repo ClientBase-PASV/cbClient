@@ -38,13 +38,13 @@ const UserRegister = (props: IProps) => {
 
       <Row gutter={6}>
         <Col span={12}>
-          <Form.Item name="firstName" rules={[validator.require]} hasFeedback>
+          <Form.Item name="firstName" rules={[validator.require, validator.name, validator.minlength3]} hasFeedback>
             <Input placeholder="First Name" />
           </Form.Item>
         </Col>
 
         <Col span={12}>
-          <Form.Item name="lastName" rules={[validator.require]} hasFeedback>
+          <Form.Item name="lastName" rules={[validator.require, validator.name, validator.minlength3]} hasFeedback>
             <Input placeholder="Last Name" />
           </Form.Item>
         </Col>

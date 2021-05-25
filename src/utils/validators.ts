@@ -23,6 +23,14 @@ const validator = {
     max: 15,
     message: 'Must be less than 15 characters',
   },
+  minlength3: {
+    min: 3,
+    message: 'Must be more than 2 characters',
+  },
+  name: {
+    pattern: /^[a-zA-Z0-9]+$/,
+    message: 'Special characters are not allowed',
+  },
 };
 
 export default validator;
