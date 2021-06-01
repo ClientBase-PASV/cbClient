@@ -3,6 +3,7 @@ import { connect, Link, withRouter } from 'umi';
 import { get } from 'lodash';
 import classNames from 'classnames';
 import { IUserAccount } from '@/pages/user/userSearch/types';
+import { versionFromProps } from '@/utils/heplers';
 
 interface IProps {
   Account: IUserAccount;
@@ -12,14 +13,15 @@ const TopMenu = (props: IProps) => {
   const location = get(props, 'location.pathname', '');
   const acl = get(props, 'Account.acl', []);
 
+  const version = versionFromProps(props);
+
   const mainMenu = [
-    { path: '/base', name: 'Base', perm: 'base.get.own' },
-    { path: '/client', name: 'Clients', perm: 'client.get.own' },
-    { path: '/order', name: 'Orders', perm: 'order.get.own' },
-    { path: '/vendor', name: 'Vendors', perm: 'vendor.get.own' },
-    { path: '/service', name: 'Services', perm: 'service.get.own' },
-  ]
-    .map((el) => ({
+    { path: `${version}/base`, name: 'Base', perm: 'base.get.own' },
+    { path: `${version}/client`, name: 'Clients', perm: 'client.get.own' },
+    { path: `${version}/order`, name: 'Orders', perm: 'order.get.own' },
+    { path: `${version}/vendor`, name: 'Vendors', perm: 'vendor.get.own' },
+    { path: `${version}/service`, name: 'Services', perm: 'service.get.own' },
+  ].map((el) => ({
     ...el,
     isActive: location.startsWith(el.path),
     isVisible: acl.includes(el.perm),

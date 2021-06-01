@@ -9,7 +9,7 @@ export async function queryUserAuth(): Promise<any> {
   return get({ url: '/user/auth' });
 }
 
-export async function queryUserLogin(payload: any): Promise<any> {
+export async function queryUserLogin(payload: any, version: string): Promise<any> {
   return post({ url: '/user/login', data: payload });
 }
 

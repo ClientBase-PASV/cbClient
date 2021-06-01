@@ -37,6 +37,10 @@ const UserRegister = (props: IProps) => {
 
   return (
     <Form size="large" name="user_login" className="login-form" onFinish={onFinish} onFieldsChange={onFieldsChange}>
+      <Link to={`/${version}`} className="text-8xl font-semibold">
+        ClientBase {version}
+      </Link>
+
       <h1>Create an account</h1>
 
       <Row gutter={6}>

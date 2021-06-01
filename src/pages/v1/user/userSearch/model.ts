@@ -40,7 +40,7 @@ export interface UsersDashboardModelType {
 }
 
 const UsersModel: UsersDashboardModelType = {
-  namespace: 'UsersDashboard',
+  namespace: 'v1UsersDashboard',
 
   state: {},
 

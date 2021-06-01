@@ -31,7 +31,6 @@ export interface UserModelType {
     passwordResetNew: Effect;
     isValidResetPasswordLink: Effect;
     emailVerify: Effect;
-    sendSupportEmail: Effect;
   };
   reducers: {
     save: Reducer<IUserAccount>;
@@ -41,7 +40,7 @@ export interface UserModelType {
 const initialState = {};
 
 const UserModel: UserModelType = {
-  namespace: 'Account',
+  namespace: 'v1Account',
 
   state: initialState,
 
@@ -60,7 +59,7 @@ const UserModel: UserModelType = {
         const companyAccount = get(userAuthResult, 'payload.companyAccount');
 
         if (!companyAccount && !emailConfirmed) {
-          history.push('/wizard');
+          history.push('/v1/wizard');
         }
 
         if (userAuthResult) {
@@ -99,32 +98,25 @@ const UserModel: UserModelType = {
       if (!(createResult instanceof Error)) {
         notification.destroy();
         yield put({ type: 'login', payload });
-        history.push('/wizard');
+        history.push('/v1/wizard');
       }
     },
 
     *logout(_, { put }) {
       localStorage.clear();
       yield put({ type: 'set', payload: {} });
-      history.push('/user/login');
+      history.push('/v1/user/login');
     },
 
     *passwordReset({ payload }, { call }) {
       yield call(queryUserPasswordReset, payload);
-      history.push('/user/password/reset/mailed');
+      history.push('/v1/user/password/reset/mailed');
     },
 
     *passwordResetNew({ payload }, { call }) {
       const result = yield call(queryUserPasswordResetNew, payload);
       if (!(result instanceof Error)) {
-        history.push('/user/login');
-      }
-    },
-
-    *sendSupportEmail({ payload }, { call }) {
-      const result = yield call(queryUserSendSupportEmail, payload);
-      if (!(result instanceof Error)) {
-        history.push('/support');
+        history.push('/v1/user/login');
       }
     },
 

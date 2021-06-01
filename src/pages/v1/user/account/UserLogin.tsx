@@ -17,7 +17,7 @@ interface IProps {
 }
 
 const UserLogin = (props: IProps) => {
-  const isLoading = get(props, 'loadingEffects.Account/login', false);
+  const isLoading = get(props, 'loadingEffects.v1Account/login', false);
 
   const version = versionFromProps(props);
 
@@ -35,6 +35,10 @@ const UserLogin = (props: IProps) => {
 
   return (
     <Form size="large" name="normal_login" className="login-form" onFieldsChange={onFieldsChange} onFinish={onFinish}>
+      <Link to={`/${version}`} className="text-8xl font-semibold">
+        ClientBase {version}
+      </Link>
+
       <h1>Welcome back!</h1>
 
       <Form.Item name="email" rules={[{ type: 'email' }, validator.require]}>
@@ -75,7 +79,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  userLogin: (payload: ILoginForm) => dispatch({ type: 'Account/login', payload }),
+  userLogin: (payload: ILoginForm) => dispatch({ type: 'v1Account/login', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserLogin);

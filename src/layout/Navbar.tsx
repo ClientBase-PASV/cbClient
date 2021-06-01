@@ -4,11 +4,15 @@ import AdminMenu from '@/layout/_menu/AdminMenu';
 import TopMenu from '@/layout/_menu/TopMenu';
 import UserInfo from '@/pages/user/topInfo/UserInfo';
 
-const Navbar = () => {
+interface IProps {
+  version: string;
+}
+
+const Navbar = ({ version }: IProps) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light-">
-      <Link to="/" className="navbar-brand">
-        ClientBase
+      <Link to={`/${version}`} className="navbar-brand">
+        ClientBase {version}
       </Link>
 
       <button

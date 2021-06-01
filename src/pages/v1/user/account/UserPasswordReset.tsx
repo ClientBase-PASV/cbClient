@@ -25,6 +25,10 @@ const UserPasswordReset = (props: IProps) => {
 
   return (
     <Form size="large" name="user_password_reset" onFinish={onFinish} onFieldsChange={onFieldsChange}>
+      <Link to={`/${version}`} className="text-8xl font-semibold">
+        ClientBase {version}
+      </Link>
+
       <h1>Reset password</h1>
       <p>Enter your account’s email address and we will send you a link to reset your password.</p>
 
