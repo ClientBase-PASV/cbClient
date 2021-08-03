@@ -1,7 +1,7 @@
 import React from 'react';
 import { get } from 'lodash';
 import { Row, Col, Card } from 'antd';
-import { IUsersStats } from '@/pages/user/userSearch/types';
+import { IUsersStats } from '@/pages/v1/user/userSearch/types';
 
 interface IProps {
   usersStats: IUsersStats;

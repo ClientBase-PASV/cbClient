@@ -3,7 +3,7 @@ import { connect, Link, withRouter } from 'umi';
 import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { get } from 'lodash';
-import { IUserAccount } from '@/pages/user/userSearch/types';
+import { IUserAccount } from '@/pages/v1/user/userSearch/types';
 import { versionFromProps } from '@/utils/heplers';
 
 interface IGetBack {
@@ -12,7 +12,7 @@ interface IGetBack {
 }
 
 interface IProps {
-  Account: IUserAccount;
+  User: IUserAccount;
   logout: () => void;
   userImpersonateGetBack: (arg: IGetBack) => void;
 }
@@ -21,14 +21,14 @@ const UserInfo = (props: IProps) => {
   const version = versionFromProps(props);
 
   const { logout, userImpersonateGetBack } = props;
-  const authUser = get(props, 'Account', '');
+  const authUser = get(props, 'User', '');
 
   const userId = get(authUser, '_id', '');
   const name = get(authUser, 'name', '');
   const adminId = localStorage.getItem('adminId');
   const adminToken = localStorage.getItem('adminToken');
 
-  const isAuthLoading = get(props, 'LoadingEffects.Account/auth', false);
+  const isAuthLoading = get(props, 'LoadingEffects.User/auth', false);
   if (isAuthLoading) return null;
 
   const menu = (
@@ -82,12 +82,12 @@ const UserInfo = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
   LoadingEffects: state.loading.effects,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  logout: () => dispatch({ type: 'Account/logout' }),
+  logout: () => dispatch({ type: 'User/logout' }),
   userImpersonateGetBack: (payload: IGetBack) => dispatch({ type: 'UsersDashboard/userImpersonateGetBack', payload }),
 });
 

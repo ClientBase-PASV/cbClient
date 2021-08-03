@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect, history } from 'umi';
 import { get, omitBy } from 'lodash';
-import BaseStats from '@/pages/base/dashboard/stats/BaseStats';
-import BaseFilterForm from '@/pages/base/dashboard/search/BaseFilterForm';
-import Pager from '@/pages/utils/pager/Pager';
-import { IBaseQueryParams } from '@/pages/base/types';
-import BaseSearchList from '@/pages/base/dashboard/search/BaseSearchList';
-import BaseDashboardControls from '@/pages/base/dashboard/controls/BaseDashboardControls';
-import { IState } from '@/pages/base/dashboard/model';
+import BaseStats from './stats/BaseStats';
+import BaseFilterForm from './search/BaseFilterForm';
+import Pager from '../../utils/pager/Pager';
+import { IBaseQueryParams } from '../types';
+import BaseSearchList from './search/BaseSearchList';
+import BaseDashboardControls from './controls/BaseDashboardControls';
+import { IState } from './model';
 
 const initialSearchForm = {
   baseSearchParam1: '',

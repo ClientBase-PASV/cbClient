@@ -1,5 +1,5 @@
 import React from 'react';
-import UserSettingsEditPersonalAddressForm from '@/pages/user/settings/personalAddress/UserSettingsEditPersonalAddressForm';
+import UserSettingsEditPersonalAddressForm from '@/pages/v1/user/settings/personalAddress/UserSettingsEditPersonalAddressForm';
 
 const UserSettingsCreateCompanyAccountWrapper = () => {
   const onFinish = () => {

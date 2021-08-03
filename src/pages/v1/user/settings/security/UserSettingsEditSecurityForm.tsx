@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Form, Input } from 'antd';
-import { IUser, IUserAccount } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/v1/user/userSearch/types';
 import { get } from 'lodash';
-import { IUpdatePasswordForm } from '@/pages/user/types';
+import { IUpdatePasswordForm } from '@/pages/v1/user/types';
 
 const layout = {
   labelCol: { span: 6 },

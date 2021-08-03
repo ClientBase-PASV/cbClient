@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { get } from 'lodash';
 import { connect } from 'umi';
-import { IUser } from '@/pages/user/userSearch/types';
-import UserSettingsEditProfileForm from '@/pages/user/settings/profile/UserSettingsEditProfileForm';
+import { IUser } from '@/pages/v1/user/userSearch/types';
+import UserSettingsEditProfileForm from '@/pages/v1/user/settings/profile/UserSettingsEditProfileForm';
 
 interface IProps {
   userId: string;

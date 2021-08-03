@@ -1,7 +1,7 @@
 import React from 'react';
 import { get, isEmpty } from 'lodash';
 import { Col, Row, Statistic, Card } from 'antd';
-import { IBaseStats } from '@/pages/base/types';
+import { IBaseStats } from '../../types';
 
 interface IProps {
   stats: IBaseStats;

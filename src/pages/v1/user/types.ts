@@ -28,3 +28,7 @@ export interface IResetPasswordArg {
   hash: string;
   password: string;
 }
+
+export interface IVerifyEmailArg {
+  userId: string;
+}

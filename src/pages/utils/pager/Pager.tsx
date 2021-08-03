@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pagination } from 'antd';
 import { get } from 'lodash';
-import { IPager } from '@/pages/utils/pager/types';
+import { IPager } from './types';
 
 interface IPagerComponent {
   onChange: (page: number) => void;

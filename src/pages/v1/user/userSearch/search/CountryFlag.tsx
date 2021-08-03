@@ -1,6 +1,6 @@
 import React from 'react';
 import { get } from 'lodash';
-import { countryListWithIsoCode } from '@/pages/user/constants';
+import { countryListWithIsoCode } from '@/pages/v1/user/constants';
 
 interface IProps {
   countryName: string;

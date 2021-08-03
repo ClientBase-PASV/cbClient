@@ -1,7 +1,7 @@
 import { Effect, Reducer } from 'umi';
-import { queryUserAuth, queryUserUpdateById, queryUserPasswordUpdate } from '@/pages/user/queries';
+import { queryUserAuth, queryUserUpdateById, queryUserPasswordUpdate } from '@/pages/v1/user/queries';
 import defaultReducers from '@/utils/defaultReducers';
-import { IUser } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/v1/user/userSearch/types';
 
 export interface IUserModelState {
   userInfo?: IUser;

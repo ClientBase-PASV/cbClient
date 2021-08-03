@@ -1,4 +1,4 @@
-import { IBase, IBaseQueryParams } from '@/pages/base/types';
+import { IBase, IBaseQueryParams } from '../../types';
 import { Button, Dropdown, Menu, Modal } from 'antd';
 import dotsIcon from '@/icons/dots-horizontal.svg';
 import React from 'react';

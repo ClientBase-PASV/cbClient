@@ -1,5 +1,4 @@
 import { get, patch, post, del } from '@/utils/httpMethods';
-import { IVerifyEmailArg } from '@/pages/companyAccount/wizard/Wizard';
 
 export async function queryUsersSearch(payload: any): Promise<any> {
   return post({ url: '/user/dashboard', data: payload });
@@ -13,7 +12,7 @@ export async function queryUsersGetRolesList(): Promise<any> {
   return get({ url: '/user/roles' });
 }
 
-export async function queryUserVerifyEmailSend(data: IVerifyEmailArg): Promise<any> {
+export async function queryUserVerifyEmailSend(data: any): Promise<any> {
   return post({ url: '/user/verify/email/send', data });
 }
 

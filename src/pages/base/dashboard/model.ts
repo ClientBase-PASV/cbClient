@@ -1,9 +1,9 @@
 import { Effect, Reducer } from 'umi';
 import { get } from 'lodash';
 
-import { queryBaseDeleteById, queryBaseGetStats, queryBaseSearch } from '@/pages/base/queries';
-import { IBase, IBaseStats } from '@/pages/base/types';
-import { IPager } from '@/pages/utils/pager/types';
+import { queryBaseDeleteById, queryBaseGetStats, queryBaseSearch } from '../queries';
+import { IBase, IBaseStats } from '../types';
+import { IPager } from '../../utils/pager/types';
 import defaultReducers from '@/utils/defaultReducers';
 
 export interface IState {

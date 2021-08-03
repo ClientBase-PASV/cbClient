@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'umi';
 import { get, isEmpty } from 'lodash';
 import { Col, Row } from 'antd';
-import UserRoles from '@/pages/user/profile/UserRoles';
+import UserRoles from './UserRoles';
 
 const UserProfile = (props: any) => {
   const userId = get(props, 'match.params.userId', '');
@@ -35,11 +35,11 @@ const UserProfile = (props: any) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  userInfo: state.Profile.userInfo,
+  userInfo: state.v1User.userInfo,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  userGetById: (payload: any) => dispatch({ type: 'Profile/userGetById', payload }),
+  userGetById: (payload: any) => dispatch({ type: 'v1User/userGetById', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

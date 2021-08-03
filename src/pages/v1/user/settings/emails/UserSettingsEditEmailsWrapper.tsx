@@ -1,5 +1,5 @@
 import React from 'react';
-import UserSettingsEditEmailsForm from '@/pages/user/settings/emails/UserSettingsEditEmailsForm';
+import UserSettingsEditEmailsForm from './UserSettingsEditEmailsForm';
 
 const UserSettingsEditEmailsWrapper = () => {
   const onFinish = () => {

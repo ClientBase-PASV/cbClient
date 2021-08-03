@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'umi';
 import { get } from 'lodash';
-import UsersFormDelete from '@/pages/user/userSearch/form/UsersFormDelete';
-import { ISidepanel } from '@/pages/utils/sidepanel/types';
+import UsersFormDelete from '@/pages/v1/user/userSearch/form/UsersFormDelete';
+import { ISidepanel } from '@/pages/v1/utils/sidepanel/types';
 
 interface IProps {
   userDeleteById: (userId: string) => void;

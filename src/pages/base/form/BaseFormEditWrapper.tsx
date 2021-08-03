@@ -3,8 +3,8 @@ import { connect, withRouter } from 'umi';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import { get, isEmpty } from 'lodash';
-import BaseForm from '@/pages/base/form/BaseForm';
-import { IBase } from '@/pages/base/types';
+import BaseForm from './BaseForm';
+import { IBase } from '../types';
 import { ILoadingEffects } from '@/types';
 
 interface IProps {

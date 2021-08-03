@@ -1,6 +1,6 @@
 import React from 'react';
-import UsersListItem from '@/pages/user/userSearch/search/UsersListItem';
-import { IUser } from '@/pages/user/userSearch/types';
+import UsersListItem from '@/pages/v1/user/userSearch/search/UsersListItem';
+import { IUser } from '@/pages/v1/user/userSearch/types';
 
 interface IProps {
   items: IUser[];

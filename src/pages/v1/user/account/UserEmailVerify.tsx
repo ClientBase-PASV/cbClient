@@ -16,19 +16,20 @@ const UserEmailVerify = (props: IProps) => {
   const userId = get(props, 'match.params.userId');
   const hash = get(props, 'match.params.hash');
 
+
   useEffect(() => {
-    props.emailVerify({ userId, hash });
+      props.emailVerify({ userId, hash });
   }, []);
 
   return (
     <div>
-      Email Verified <a href="https://clientBase.us/wizard">Continue</a>
+      Email Verified <a href="/v1/onboarding">Continue</a>
     </div>
   );
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  emailVerify: (payload: IVerifyEmail) => dispatch({ type: 'Account/emailVerify', payload }),
+  emailVerify: (payload: IVerifyEmail) => dispatch({ type: 'v1User/emailVerify', payload }),
 });
 
 export default connect(null, mapDispatchToProps)(UserEmailVerify);

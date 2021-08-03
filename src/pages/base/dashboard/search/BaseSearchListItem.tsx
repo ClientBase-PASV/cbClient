@@ -3,7 +3,7 @@ import moment from 'moment';
 import { connect, Link } from 'umi';
 import { get } from 'lodash';
 import { Button, Row } from 'antd';
-import { IBase } from '@/pages/base/types';
+import { IBase } from '../../types';
 
 interface IProps extends IBase {
   baseDelete: (id: String) => void;

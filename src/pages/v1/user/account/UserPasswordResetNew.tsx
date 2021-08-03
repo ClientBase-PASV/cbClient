@@ -4,7 +4,7 @@ import { LockOutlined } from '@ant-design/icons';
 import { connect, Link } from 'umi';
 import validator from '@/utils/validators';
 import { get } from 'lodash';
-import { IValidResetPasswordLink, IResetPasswordArg } from '@/pages/user/types';
+import { IValidResetPasswordLink, IResetPasswordArg } from '@/pages/v1/user/types';
 
 interface IProps {
   userPasswordResetNew: (arg: IResetPasswordArg) => void;
@@ -14,7 +14,7 @@ interface IProps {
 const UserPasswordResetNew = (props: IProps) => {
   const { userId, hash } = get(props, 'match.params', '');
   const isValidResetLink = get(props, 'isValidResetLink', false);
-  const isLoadingValidationOfLink = get(props, 'loadingEffects.Account/isValidResetPasswordLink', true);
+  const isLoadingValidationOfLink = get(props, 'loadingEffects.User/isValidResetPasswordLink', true);
 
   const [disableSubmit, setDisableSubmit] = useState(true);
 
@@ -86,13 +86,13 @@ const UserPasswordResetNew = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
-  isValidResetLink: state.Account.isValidResetLink,
+  isValidResetLink: state.User.isValidResetLink,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  userPasswordResetNew: (payload: IResetPasswordArg) => dispatch({ type: 'Account/passwordResetNew', payload }),
+  userPasswordResetNew: (payload: IResetPasswordArg) => dispatch({ type: 'User/passwordResetNew', payload }),
   isValidResetPasswordLink: (payload: IValidResetPasswordLink) =>
-    dispatch({ type: 'Account/isValidResetPasswordLink', payload }),
+    dispatch({ type: 'User/isValidResetPasswordLink', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserPasswordResetNew);

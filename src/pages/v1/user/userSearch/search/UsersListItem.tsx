@@ -4,10 +4,10 @@ import { connect, Link } from 'umi';
 import slackIcon from '@/icons/slack.svg';
 import { get } from 'lodash';
 import { Row, Col, Button, Tag } from 'antd';
-import UsersListItemRoles from '@/pages/user/userSearch/search/UsersListItemRoles';
-import { IUser } from '@/pages/user/userSearch/types';
+import UsersListItemRoles from '@/pages/v1/user/userSearch/search/UsersListItemRoles';
+import { IUser } from '@/pages/v1/user/userSearch/types';
 import { ISidepanel, ISidepanelOpen } from '@/pages/utils/sidepanel/types';
-import CountryFlag from '@/pages/user/userSearch/search/CountryFlag';
+import CountryFlag from '@/pages/v1/user/userSearch/search/CountryFlag';
 
 const slackTeamId = 'T83EK681G';
 

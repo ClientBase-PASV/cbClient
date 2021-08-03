@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'umi';
-import UsersStats from '@/pages/user/userSearch/stats/UsersStats';
-import UsersList from '@/pages/user/userSearch/search/UsersList';
-import UsersPagination from '@/pages/user/userSearch/search/UsersPagination';
-import UsersFilterForm from '@/pages/user/userSearch/search/UsersFilterForm';
-import { IUsersSearchTerms, IUser, IUsersStats, IPagination } from '@/pages/user/userSearch/types';
+import UsersStats from '@/pages/v1/user/userSearch/stats/UsersStats';
+import UsersList from '@/pages/v1/user/userSearch/search/UsersList';
+import UsersPagination from '@/pages/v1/user/userSearch/search/UsersPagination';
+import UsersFilterForm from '@/pages/v1/user/userSearch/search/UsersFilterForm';
+import { IUsersSearchTerms, IUser, IUsersStats, IPagination } from '@/pages/v1/user/userSearch/types';
 
 const defaultSearchParams: IUsersSearchTerms = {
   name: '',

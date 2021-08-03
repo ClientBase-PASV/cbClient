@@ -7,8 +7,8 @@ import { get } from 'lodash';
 interface IProps {}
 
 const SettingsMenu = (props: IProps) => {
-  const ownerId = get(props, 'Account._id', '');
-  const companyAccountId = get(props, 'Account.companyAccount', '');
+  const ownerId = get(props, 'User._id', '');
+  const companyAccountId = get(props, 'User.companyAccount', '');
 
   let menuItemName = '';
 
@@ -54,7 +54,7 @@ const SettingsMenu = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  Account: state.Account,
+  User: state.User,
 });
 
 export default withRouter(connect(mapStateToProps, null)(SettingsMenu));

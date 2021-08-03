@@ -37,7 +37,7 @@ const UserRegister = (props: IProps) => {
 
   return (
     <Form size="large" name="user_login" className="login-form" onFinish={onFinish} onFieldsChange={onFieldsChange}>
-      <Link to={`/${version}`} className="text-8xl font-semibold">
+      <Link to={`/${version}`} className="text-4xl font-semibold">
         ClientBase {version}
       </Link>
 
@@ -90,7 +90,7 @@ const mapStateToProps = (state: any) => ({});
 
 const mapDispatchToProps = (dispatch: any) => ({
   userRegister: (formValues: IRegisterForm, version: string) =>
-    dispatch({ type: 'Account/register', payload: formValues, version }),
+    dispatch({ type: 'v1User/register', payload: formValues, version }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserRegister);

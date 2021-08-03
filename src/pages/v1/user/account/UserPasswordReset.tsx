@@ -50,7 +50,7 @@ const UserPasswordReset = (props: IProps) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  userPasswordReset: (payload: any) => dispatch({ type: 'Account/passwordReset', payload }),
+  userPasswordReset: (payload: any) => dispatch({ type: 'User/passwordReset', payload }),
 });
 
 export default connect(null, mapDispatchToProps)(UserPasswordReset);

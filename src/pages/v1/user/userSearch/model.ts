@@ -10,7 +10,7 @@ import {
   queryUserDeleteById,
   queryUserUpdateSlackMemberId,
   queryUserImpersonate,
-} from '@/pages/user/userSearch/queries';
+} from './queries';
 import { history } from '@@/core/history';
 import { get } from 'lodash';
 import defaultReducers from '@/utils/defaultReducers';
@@ -97,15 +97,15 @@ const UsersModel: UsersDashboardModelType = {
       const userId = get(data, 'userId');
       const token = get(data, 'token');
 
-      yield put({ type: 'Account/reset' });
-      yield put({ type: 'Profile/reset' });
+      yield put({ type: 'User/reset' });
+      yield put({ type: 'User/reset' });
       yield put({ type: 'reset' });
 
       localStorage.setItem('token', token);
       localStorage.setItem('userId', userId);
 
       history.push(`/profile/${userId}`);
-      yield put({ type: 'Account/auth' });
+      yield put({ type: 'User/auth' });
     },
 
     *userImpersonateGetBack({ payload }, { put }) {
@@ -118,8 +118,8 @@ const UsersModel: UsersDashboardModelType = {
       localStorage.removeItem('adminId');
 
       history.push(`/profile/${adminId}`);
-      yield put({ type: 'Account/auth' });
-      yield put({ type: 'Profile/userGetById', payload: adminId });
+      yield put({ type: 'User/auth' });
+      yield put({ type: 'User/userGetById', payload: adminId });
     },
 
     *reset(_, { put }) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Form, Input, Select } from 'antd';
 import validator from '@/utils/validators';
-import { IBase } from '@/pages/base/types';
+import { IBase } from '../types';
 import { get } from 'lodash';
 
 interface IProps {

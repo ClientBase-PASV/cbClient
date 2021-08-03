@@ -2,7 +2,7 @@ const v1Routes = [
   // USER
   {
     path: '/v1/user',
-    component: '@/layout/LoginLayout',
+    component: '@/layout/v1/LoginLayout',
     routes: [
       {
         path: '/v1/user/password/reset/request',
@@ -30,11 +30,16 @@ const v1Routes = [
 
   {
     path: '/v1/',
-    component: '@/layout/GeneralLayout',
+    component: '@/layout/v1/GeneralLayout',
     routes: [
       {
+        path: '/v1/onboarding',
+        component: '@/pages/v1/user/onboarding/Onboarding',
+      },
+
+      {
         path: '/v1/profile/:userId',
-        component: '@/pages/user/profile/UserProfile',
+        component: '@/pages/v1/user/profile/UserProfile',
       },
 
       { path: '/v1/base', component: '@/pages/base/dashboard/BaseDashboard' },
@@ -42,70 +47,70 @@ const v1Routes = [
 
       {
         path: '/v1/client',
-        component: '@/pages/client/dashboard/ClientDashboard',
+        component: '@/pages/v1/client/dashboard/ClientDashboard',
       },
       {
         path: '/v1/client/:clientId',
-        component: '@/pages/client/view/ClientView',
+        component: '@/pages/v1/client/view/ClientView',
       },
 
-      { path: '/v1/order', component: '@/pages/order/dashboard/OrderDashboard' },
-      { path: '/v1/order/:orderId', component: '@/pages/order/view/OrderView' },
+      { path: '/v1/order', component: '@/pages/v1/order/dashboard/OrderDashboard' },
+      { path: '/v1/order/:orderId', component: '@/pages/v1/order/view/OrderView' },
 
       {
         path: '/v1/vendor',
-        component: '@/pages/vendor/dashboard/VendorDashboard',
+        component: '@/pages/v1/vendor/dashboard/VendorDashboard',
       },
       {
         path: '/v1/vendor/:vendorId',
-        component: '@/pages/vendor/view/VendorView',
+        component: '@/pages/v1/vendor/view/VendorView',
       },
 
       {
         path: '/v1/service',
-        component: '@/pages/service/dashboard/ServiceDashboard',
+        component: '@/pages/v1/service/dashboard/ServiceDashboard',
       },
       {
         path: '/v1/service/:serviceId',
-        component: '@/pages/service/view/ServiceView',
+        component: '@/pages/v1/service/view/ServiceView',
       },
 
       // *****  ====================================
-      { path: '/v1/users', component: '@/pages/user/userSearch/UsersDashboard' },
-      { path: '/v1/contact', component: '@/pages/pages/ContactPage' },
-      { path: '/v1/pricing', component: '@/pages/pages/PricingPage' },
-      { path: '/v1/industries', component: '@/pages/pages/IndustriesPage' },
-      { path: '/v1/support', component: '@/pages/pages/supportPage/Support' },
-      { path: '/v1/faq', component: '@/pages/pages/Faq' },
-      { path: '/v1/subscribe', component: '@/pages/pages/Subscribe' },
+      { path: '/v1/users', component: '@/pages/v1/user/userSearch/UsersDashboard' },
+      { path: '/v1/contact', component: '@/pages/v1/staticPages/ContactPage' },
+      { path: '/v1/pricing', component: '@/pages/v1/staticPages/PricingPage' },
+      { path: '/v1/industries', component: '@/pages/v1/staticPages/IndustriesPage' },
+      { path: '/v1/support', component: '@/pages/v1/staticPages/supportPage/Support' },
+      { path: '/v1/faq', component: '@/pages/v1/staticPages/Faq' },
+      { path: '/v1/subscribe', component: '@/pages/v1/staticPages/Subscribe' },
       {
         path: '/v1/settings/:userId',
-        component: '@/layout/UserSettingsLayout',
+        component: '@/layout/v1/UserSettingsLayout',
         routes: [
           {
             path: '/v1/settings/:userId',
-            redirect: '/settings/companyAccount/:userId',
+            redirect: '/v1/settings/companyAccount/:userId',
           },
           {
             path: '/v1/settings/profile/:userId',
-            component: '@/pages/user/settings/profile/UserSettingsEditProfileWrapper',
+            component: '@/pages/v1/user/settings/profile/UserSettingsEditProfileWrapper',
           },
           {
             path: '/v1/settings/security/:userId',
-            component: '@/pages/user/settings/security/UserSettingsEditSecurityWrapper',
+            component: '@/pages/v1/user/settings/security/UserSettingsEditSecurityWrapper',
           },
           {
             path: '/v1/settings/emails/:userId',
-            component: '@/pages/user/settings/emails/UserSettingsEditEmailsWrapper',
+            component: '@/pages/v1/user/settings/emails/UserSettingsEditEmailsWrapper',
           },
           {
             path: '/v1/settings/links/:userId',
-            component: '@/pages/user/settings/links/UserSettingsEditLinksWrapper',
+            component: '@/pages/v1/user/settings/links/UserSettingsEditLinksWrapper',
           },
         ],
       },
 
-      { path: '/v1/', component: '@/pages/pages/homePage/HomePage' },
+      { path: '/v1/', component: '@/pages/v1/staticPages/home/HomePage' },
     ],
   },
 ];

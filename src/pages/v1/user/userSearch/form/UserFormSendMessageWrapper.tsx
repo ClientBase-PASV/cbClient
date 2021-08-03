@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'umi';
 import { get } from 'lodash';
-import { ISidepanel } from '@/pages/utils/sidepanel/types';
-import UserFormSendMessage from '@/pages/user/userSearch/form/UserFormSendMessage';
+import { ISidepanel } from '@/pages/v1/utils/sidepanel/types';
+import UserFormSendMessage from '@/pages/v1/user/userSearch/form/UserFormSendMessage';
 
 interface IProps {
   userDeleteById: (userId: string) => void;

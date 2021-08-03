@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'umi';
-import UserSettingsEditSecurityForm from '@/pages/user/settings/security/UserSettingsEditSecurityForm';
-import { IUpdatePasswordForm } from '@/pages/user/types';
+import UserSettingsEditSecurityForm from '@/pages/v1/user/settings/security/UserSettingsEditSecurityForm';
+import { IUpdatePasswordForm } from '@/pages/v1/user/types';
 import { ILoadingEffects } from '@/types';
 
 interface IProps {

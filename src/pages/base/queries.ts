@@ -1,5 +1,5 @@
 import { get, patch, post, del } from '@/utils/httpMethods';
-import { IBase, IBaseQueryParams } from '@/pages/base/types';
+import { IBase, IBaseQueryParams } from './types';
 
 export async function queryBaseCreate(payload: any): Promise<any> {
   return post({ url: '/base', data: payload });

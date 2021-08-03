@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar, Button, Form, Input } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { IUser } from '@/pages/user/userSearch/types';
+import { IUser } from '@/pages/v1/user/userSearch/types';
 
 const layout = {
   labelCol: { span: 2 },

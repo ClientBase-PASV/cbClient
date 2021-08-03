@@ -1,6 +1,6 @@
 import { Effect, Reducer } from 'umi';
 
-import { queryBaseGetById } from '@/pages/base/queries';
+import { queryBaseGetById } from '../queries';
 import defaultReducers from '@/utils/defaultReducers';
 
 export interface IState {}

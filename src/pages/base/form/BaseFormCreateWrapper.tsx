@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'umi';
-import BaseForm from '@/pages/base/form/BaseForm';
-import { IBase } from '@/pages/base/types';
+import BaseForm from './BaseForm';
+import { IBase } from '../types';
 import { get } from 'lodash';
 import { ILoadingEffects } from '@/types';
 

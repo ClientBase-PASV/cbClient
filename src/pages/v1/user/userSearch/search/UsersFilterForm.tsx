@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Select, Col, Row, Form } from 'antd';
 import { debounce } from 'lodash';
-import { IUsersSearchTerms } from '@/pages/user/userSearch/types';
+import { IUsersSearchTerms } from '../types';
 
 const { Option } = Select;
 

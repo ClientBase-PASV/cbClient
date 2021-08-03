@@ -1,16 +1,15 @@
 import v1Routes from './v1Routes';
-import defaultRoutes from './defaultRoutes';
+// import defaultRoutes from './defaultRoutes';
 
 export default [
   {
     path: '/v1',
-    component: '@/layout/SecurityLayout',
+    component: '@/layout/v1/SecurityLayout',
     routes: v1Routes,
   },
 
-  // {
-  //   path: '/',
-  //   component: '@/layout/SecurityLayout',
-  //   routes: defaultRoutes,
-  // },
+  {
+    path: '/',
+    redirect: '/v1',
+  },
 ];

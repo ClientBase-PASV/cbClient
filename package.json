@@ -5,33 +5,36 @@
     "local": "cross-env UMI_ENV=local umi dev",
     "prod": "cross-env UMI_ENV=prod umi dev",
     "build": "umi build",
+    "dev": "umi dev",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage"
   },
   "dependencies": {
-    "@umijs/preset-react": "1.8.8",
-    "@umijs/test": "3.4.22",
-    "antd": "4.16.0",
+    "@umijs/preset-react": "^1.8.22",
+    "@umijs/test": "^3.5.15",
+    "antd": "^4.16.10",
     "axios": "^0.21.1",
     "axios-progress-bar": "^1.2.0",
-    "classnames": "2.3.1",
+    "classnames": "^2.3.1",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
-    "moment-timezone": "^0.5.32",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "umi": "3.4.22"
+    "moment-timezone": "^0.5.33",
+    "react": "17.x",
+    "react-dom": "17.x",
+    "umi": "^3.5.15"
   },
   "devDependencies": {
-    "prettier": "2.3.0",
-    "yorkie": "^2.0.0",
-    "lint-staged": "11.0.0",
-    "@react-google-maps/api": "2.2.0",
-    "@types/classnames": "2.3.1",
-    "@types/googlemaps": "^3.43.1",
+    "@react-google-maps/api": "^2.2.0",
+    "@types/classnames": "^2.3.1",
+    "@types/googlemaps": "^3.43.3",
+    "@types/lodash": "^4.14.172",
     "@umijs/plugin-sass": "^1.1.1",
     "cross-env": "^7.0.3",
-    "umi-plugin-tailwindcss": "^3.0.4"
+    "lint-staged": "^11.1.1",
+    "prettier": "^2.3.2",
+    "umi-plugin-tailwindcss": "^3.0.4",
+    "yorkie": "^2.0.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

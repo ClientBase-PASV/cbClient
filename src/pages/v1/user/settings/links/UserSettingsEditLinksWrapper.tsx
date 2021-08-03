@@ -1,5 +1,5 @@
 import React from 'react';
-import UserSettingsEditLinksForm from '@/pages/user/settings/links/UserSettingsEditLinksForm';
+import UserSettingsEditLinksForm from '@/pages/v1/user/settings/links/UserSettingsEditLinksForm';
 
 const UserSettingsEditLinksWrapper = () => {
   const onFinish = (formValues: any) => {
