@@ -7,7 +7,7 @@ import { ILoadingEffects } from '@/types';
 
 interface IProps {
   create: (arg: IService) => void;
-  vendorSearch: () => void;
+  search: () => void;
   loadingEffects: ILoadingEffects;
 }
 
@@ -17,7 +17,7 @@ const ServiceFormCreateWrapper = (props: IProps) => {
   };
 
   useEffect(() => {
-    props.vendorSearch();
+    props.search();
   }, []);
 
   const isLoading = get(props, 'loadingEffects.ServiceForm/create', false);
@@ -33,7 +33,7 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   create: (payload: IService) => dispatch({ type: 'ServiceForm/create', payload }),
-  vendorSearch: () => dispatch({ type: 'ServiceForm/vendorSearch' }),
+  search: () => dispatch({ type: 'ServiceForm/search' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ServiceFormCreateWrapper);

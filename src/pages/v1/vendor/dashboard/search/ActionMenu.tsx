@@ -14,7 +14,7 @@ interface IVendorDeleteById {
 interface IProps {
   row: IVendor;
   open: (arg: ISidepanel) => void;
-  vendorDeleteById: (arg: IVendorDeleteById) => void;
+  deleteById: (arg: IVendorDeleteById) => void;
   queryParams: IVendorQueryParams;
 }
 
@@ -60,7 +60,7 @@ const ActionMenu = (props: IProps) => {
       title: `Do you want to delete?`,
       content: `${vendor.name}`,
       okType: 'danger',
-      onOk: () => props.vendorDeleteById({ vendorId: vendor._id, queryParams }),
+      onOk: () => props.deleteById({ vendorId: vendor._id, queryParams }),
     });
   };
 
@@ -83,7 +83,7 @@ const ActionMenu = (props: IProps) => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-  vendorDeleteById: (payload: IVendorDeleteById) => dispatch({ type: 'VendorDashboard/vendorDeleteById', payload }),
+  deleteById: (payload: IVendorDeleteById) => dispatch({ type: 'v1Vendor/deleteById', payload }),
 });
 
 export default connect(null, mapDispatchToProps)(ActionMenu);

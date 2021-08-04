@@ -10,9 +10,7 @@ interface IProps {
 
 const VendorView = (props: IProps) => {
   const vendorId = get(props, 'match.params.vendorId');
-  const name = get(props, 'VendorView.name', '');
-
-  console.log(props);
+  const name = get(props, 'Vendor.name', '');
 
   useEffect(() => {
     props.vendorGetById(vendorId);
@@ -26,11 +24,11 @@ const VendorView = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  VendorView: state.VendorView,
+  Vendor: state.v1Vendor,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  vendorGetById: (payload: string) => dispatch({ type: 'VendorView/vendorGetById', payload }),
+  vendorGetById: (payload: string) => dispatch({ type: 'v1Vendor/vendorGetById', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VendorView);

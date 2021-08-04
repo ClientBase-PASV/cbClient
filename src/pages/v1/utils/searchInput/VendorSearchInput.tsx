@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Select } from 'antd';
 import { connect } from 'umi';
 import { debounce, get } from 'lodash';
-import { IVendor } from '@/pages/vendor/types';
+import { IVendor } from '@/pages/v1/vendor/types';
 import { ILoadingEffects } from '@/types';
 
 const { Option } = Select;
@@ -26,7 +26,7 @@ const VendorSearchInput = (props: IProps) => {
 
   const isLoading = get(props, 'loadingEffects.SearchInput/vendorSearch', false);
 
-  const list: IVendor[] = get(props, 'SearchInput.vendor.list', []);
+  const list: IVendor[] = get(props, 'SearchInput.vendor', []);
 
   const onFocus = () => {
     if (!list.length) props.search('');
@@ -53,12 +53,12 @@ const VendorSearchInput = (props: IProps) => {
   const options = list.map((el: IVendor) => (
     <Option key={el._id} value={el._id} className="font-weight-bold">
       {el.name}
-      <div className="option">
-        <div className="small d-flex justify-content-between text-muted">
-          <div>{el.email}</div>
-          <div>{el.phoneNumber}</div>
-        </div>
-      </div>
+      {/*<div className="option">*/}
+      {/*  <div className="small d-flex justify-content-between text-muted">*/}
+      {/*    <div>{el.email}</div>*/}
+      {/*    <div>{el.phoneNumber}</div>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
     </Option>
   ));
 

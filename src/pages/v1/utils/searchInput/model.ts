@@ -44,9 +44,7 @@ const Model: IModel = {
       yield put({
         type: 'save',
         payload: {
-          order: {
-            list: get(data, 'payload.items'),
-          },
+          order: get(data, 'payload.items'),
         },
       });
     },
@@ -56,9 +54,7 @@ const Model: IModel = {
       yield put({
         type: 'save',
         payload: {
-          vendor: {
-            list: get(data, 'payload.items'),
-          },
+          vendor: get(data, 'payload.items'),
         },
       });
     },

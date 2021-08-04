@@ -40,7 +40,7 @@ const VendorSearchListItem = (props: IProps) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  vendorDelete: (payload: any) => dispatch({ type: 'VendorDashboard/vendorDelete', payload }),
+  vendorDelete: (payload: any) => dispatch({ type: 'v1Vendor/vendorDelete', payload }),
 });
 
 export default connect(null, mapDispatchToProps)(VendorSearchListItem);

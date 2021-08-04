@@ -45,7 +45,7 @@ const ClientFormEditWrapper = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   sidepanel: state.Sidepanel,
-  clientInfo: state.v1Client.clientInfo,
+  clientInfo: state.v1Client,
   loadingEffects: state.loading.effects,
 });
 

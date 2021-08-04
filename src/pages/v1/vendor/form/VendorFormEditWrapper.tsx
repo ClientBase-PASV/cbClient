@@ -20,8 +20,8 @@ const VendorFormEditWrapper = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const vendorId: string = get(props, 'sidepanel.vendorId', '');
 
-  const isLoadingGet = get(props, 'loadingEffects.VendorForm/getById', false);
-  const isLoadingUpdate = get(props, 'loadingEffects.VendorForm/updateById', false);
+  const isLoadingGet = get(props, 'loadingEffects.v1Vendor/getById', false);
+  const isLoadingUpdate = get(props, 'loadingEffects.v1Vendor/updateById', false);
 
   useEffect(() => {
     props.getById(vendorId);
@@ -45,14 +45,14 @@ const VendorFormEditWrapper = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   sidepanel: state.Sidepanel,
-  vendorInfo: state.VendorForm.vendorInfo,
+  vendorInfo: state.v1Vendor,
   loadingEffects: state.loading.effects,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  reset: () => dispatch({ type: 'VendorForm/reset' }),
-  updateById: (payload: IVendor) => dispatch({ type: 'VendorForm/updateById', payload }),
-  getById: (payload: string) => dispatch({ type: 'VendorForm/getById', payload }),
+  reset: () => dispatch({ type: 'v1Vendor/reset' }),
+  updateById: (payload: IVendor) => dispatch({ type: 'v1Vendor/updateById', payload }),
+  getById: (payload: string) => dispatch({ type: 'v1Vendor/getById', payload }),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(VendorFormEditWrapper));

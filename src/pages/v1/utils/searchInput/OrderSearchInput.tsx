@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Select } from 'antd';
 import { connect } from 'umi';
 import { debounce, get } from 'lodash';
-import { IOrder } from '@/pages/order/types';
+import { IOrder } from '@/pages/v1/order/types';
 import { ILoadingEffects } from '@/types';
 
 const { Option } = Select;
@@ -37,7 +37,7 @@ const OrderSearchInput = (props: IProps) => {
 
   const isLoading = get(props, 'loadingEffects.SearchInput/orderSearch', false);
 
-  const list: IOrder[] = get(props, 'SearchInput.order.list', []);
+  const list: IOrder[] = get(props, 'SearchInput.order', []);
 
   const onFocus = () => {
     props.search({ clientId });

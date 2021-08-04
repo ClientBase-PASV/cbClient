@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect, history } from 'umi';
 import { get, omitBy } from 'lodash';
-import VendorStats from '@/pages/v1/vendor/dashboard/stats/VendorStats';
+// import VendorStats from '@/pages/v1/vendor/dashboard/stats/VendorStats';
 import VendorFilterForm from '@/pages/v1/vendor/dashboard/search/VendorFilterForm';
 import Pager from '@/pages/utils/pager/Pager';
 import { IVendorQueryParams } from '@/pages/v1/vendor/types';
 import VendorSearchList from '@/pages/v1/vendor/dashboard/search/VendorSearchList';
 import VendorDashboardControls from '@/pages/v1/vendor/dashboard/controls/VendorDashboardControls';
-import { IState } from '@/pages/v1/vendor/dashboard/model';
+import { IState } from '@/pages/v1/vendor/model';
 
 const initialSearchForm = {
   vendorSearchParam1: '',
@@ -21,16 +21,16 @@ const initialSearchQuery = {
 };
 
 interface IProps {
-  vendorGetStats: () => void;
-  vendorSearch: (arg: IVendorQueryParams) => void;
+  getStats: () => void;
+  search: (arg: IVendorQueryParams) => void;
   vendorReset: () => void;
   VendorDashboard: IState;
 }
 
 const VendorDashboard = (props: IProps) => {
-  const vendorStats = get(props, 'VendorDashboard.vendorStats', {});
-  const vendorList = get(props, 'VendorDashboard.vendorList', []);
-  const vendorPager = get(props, 'VendorDashboard.vendorPager', {});
+  // const vendorStats = get(props, 'Vendor.vendorStats', {});
+  const vendorList = get(props, 'Vendor.vendorList', []);
+  const vendorPager = get(props, 'Vendor.vendorPager', {});
   const queryParams = get(props, 'location.query', {});
 
   const getSearchQuery = (mixin = {}) => {
@@ -39,7 +39,7 @@ const VendorDashboard = (props: IProps) => {
   };
 
   useEffect(() => {
-    props.vendorGetStats();
+    props.getStats();
 
     return () => {
       props.vendorReset();
@@ -48,7 +48,7 @@ const VendorDashboard = (props: IProps) => {
 
   // поиск в зависимости от изменения параметров
   useEffect(() => {
-    props.vendorSearch(getSearchQuery());
+    props.search(getSearchQuery());
   }, [queryParams]);
 
   const onFiltersChange = (values: null | IVendorQueryParams) => {
@@ -70,7 +70,7 @@ const VendorDashboard = (props: IProps) => {
           <VendorFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
         </div>
 
-        <VendorStats stats={vendorStats} />
+        {/*<VendorStats stats={vendorStats} />*/}
 
         <div>
           <VendorDashboardControls />
@@ -84,13 +84,13 @@ const VendorDashboard = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  VendorDashboard: state.VendorDashboard,
+  Vendor: state.v1Vendor,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  vendorSearch: (payload: IVendorQueryParams) => dispatch({ type: 'VendorDashboard/vendorSearch', payload }),
-  vendorGetStats: () => dispatch({ type: 'VendorDashboard/vendorGetStats' }),
-  vendorReset: () => dispatch({ type: 'VendorDashboard/reset' }),
+  search: (payload: IVendorQueryParams) => dispatch({ type: 'v1Vendor/search', payload }),
+  getStats: () => dispatch({ type: 'v1Vendor/getStats' }),
+  vendorReset: () => dispatch({ type: 'v1Vendor/reset' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VendorDashboard);

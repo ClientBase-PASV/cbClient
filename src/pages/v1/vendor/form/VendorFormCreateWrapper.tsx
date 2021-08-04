@@ -15,7 +15,7 @@ const VendorFormCreateWrapper = (props: IProps) => {
     props.create(values);
   };
 
-  const isLoading = get(props, 'loadingEffects.VendorForm/create', false);
+  const isLoading = get(props, 'loadingEffects.v1Vendor/create', false);
 
   return <VendorForm onFinish={onFinish} submitButtonText="Create" isLoading={isLoading} />;
 };
@@ -25,7 +25,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  create: (payload: IVendor) => dispatch({ type: 'VendorForm/create', payload }),
+  create: (payload: IVendor) => dispatch({ type: 'v1Vendor/create', payload }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VendorFormCreateWrapper);
