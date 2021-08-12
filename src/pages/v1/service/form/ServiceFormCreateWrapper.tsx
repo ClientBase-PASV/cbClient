@@ -20,7 +20,7 @@ const ServiceFormCreateWrapper = (props: IProps) => {
     props.search();
   }, []);
 
-  const isLoading = get(props, 'loadingEffects.ServiceForm/create', false);
+  const isLoading = get(props, 'loadingEffects.v1ServiceForm/create', false);
   const vendorList = get(props, 'vendorList', []);
 
   return <ServiceForm onFinish={onFinish} submitButtonText="Create" isLoading={isLoading} vendorList={vendorList} />;
@@ -28,12 +28,12 @@ const ServiceFormCreateWrapper = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
-  vendorList: state.ServiceForm.vendorList,
+  vendorList: state.v1ServiceForm.vendorList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  create: (payload: IService) => dispatch({ type: 'ServiceForm/create', payload }),
-  search: () => dispatch({ type: 'ServiceForm/search' }),
+  create: (payload: IService) => dispatch({ type: 'v1Service/create', payload }),
+  search: () => dispatch({ type: 'v1Service/search' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ServiceFormCreateWrapper);

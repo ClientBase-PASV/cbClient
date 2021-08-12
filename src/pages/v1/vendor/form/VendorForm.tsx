@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Form, Input, Select } from 'antd';
-import validator from '@/utils/validators';
+import validator from '@/pages/v1/utils/validators';
 import { IVendor } from '@/pages/v1/vendor/types';
 import { get } from 'lodash';
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect, Link } from 'umi';
 import { Button, Form, Input } from 'antd';
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
-import validator from '@/utils/validators';
+import validator from '@/pages/v1/utils/validators';
 import { get } from 'lodash';
 import { versionFromProps } from '@/utils/heplers';
 

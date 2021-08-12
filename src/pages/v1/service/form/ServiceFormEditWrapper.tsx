@@ -21,13 +21,12 @@ const ServiceFormEditWrapper = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
   const serviceId: string = get(props, 'sidepanel.serviceId', '');
 
-  const isLoadingGet = get(props, 'loadingEffects.ServiceForm/getById', false);
-  const isLoadingUpdate = get(props, 'loadingEffects.ServiceForm/updateById', false);
+  const isLoadingGet = get(props, 'loadingEffects.v1Service/getById', false);
+  const isLoadingUpdate = get(props, 'loadingEffects.v1Service/updateById', false);
   const vendorList = get(props, 'vendorList', []);
 
   useEffect(() => {
     props.getById(serviceId);
-    props.vendorSearch();
   }, []);
 
   const onFinish = (values: IService) => {
@@ -49,16 +48,15 @@ const ServiceFormEditWrapper = (props: IProps) => {
 
 const mapStateToProps = (state: any) => ({
   sidepanel: state.Sidepanel,
-  serviceInfo: state.ServiceForm.serviceInfo,
+  serviceInfo: state.v1Service,
   loadingEffects: state.loading.effects,
-  vendorList: state.ServiceForm.vendorList,
+  vendorList: state.v1Service.vendorList,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  reset: () => dispatch({ type: 'ServiceForm/reset' }),
-  updateById: (payload: IService) => dispatch({ type: 'ServiceForm/updateById', payload }),
-  getById: (payload: string) => dispatch({ type: 'ServiceForm/getById', payload }),
-  vendorSearch: () => dispatch({ type: 'ServiceForm/vendorSearch' }),
+  reset: () => dispatch({ type: 'v1Service/reset' }),
+  updateById: (payload: IService) => dispatch({ type: 'v1Service/updateById', payload }),
+  getById: (payload: string) => dispatch({ type: 'v1Service/getById', payload }),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ServiceFormEditWrapper));

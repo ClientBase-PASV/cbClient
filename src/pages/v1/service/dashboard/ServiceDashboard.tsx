@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect, history } from 'umi';
 import { get, omitBy } from 'lodash';
-import ServiceStats from '@/pages/v1/service/dashboard/stats/ServiceStats';
+// import ServiceStats from '@/pages/v1/service/dashboard/stats/ServiceStats';
 import ServiceFilterForm from '@/pages/v1/service/dashboard/search/ServiceFilterForm';
 import Pager from '@/pages/utils/pager/Pager';
 import { IServiceQueryParams } from '@/pages/v1/service/types';
 import ServiceSearchList from '@/pages/v1/service/dashboard/search/ServiceSearchList';
 import ServiceDashboardControls from '@/pages/v1/service/dashboard/controls/ServiceDashboardControls';
-import { IState } from '@/pages/v1/service/dashboard/model';
+import { IState } from '@/pages/v1/service/model';
 
 const initialSearchForm = {
   serviceSearchParam1: '',
@@ -21,16 +21,16 @@ const initialSearchQuery = {
 };
 
 interface IProps {
-  serviceGetStats: () => void;
-  serviceSearch: (arg: IServiceQueryParams) => void;
+  getStats: () => void;
+  search: (arg: IServiceQueryParams) => void;
   serviceReset: () => void;
   ServiceDashboard: IState;
 }
 
 const ServiceDashboard = (props: IProps) => {
-  const serviceStats = get(props, 'ServiceDashboard.serviceStats', {});
-  const serviceList = get(props, 'ServiceDashboard.serviceList', []);
-  const servicePager = get(props, 'ServiceDashboard.servicePager', {});
+  // const serviceStats = get(props, 'ServiceDashboard.serviceStats', {});
+  const serviceList = get(props, 'v1Service.serviceList', []);
+  const servicePager = get(props, 'v1Service.servicePager', {});
   const queryParams = get(props, 'location.query', {});
 
   const getSearchQuery = (mixin = {}) => {
@@ -39,7 +39,7 @@ const ServiceDashboard = (props: IProps) => {
   };
 
   useEffect(() => {
-    props.serviceGetStats();
+    props.getStats();
 
     return () => {
       props.serviceReset();
@@ -48,7 +48,7 @@ const ServiceDashboard = (props: IProps) => {
 
   // поиск в зависимости от изменения параметров
   useEffect(() => {
-    props.serviceSearch(getSearchQuery());
+    props.search(getSearchQuery());
   }, [queryParams]);
 
   const onFiltersChange = (values: null | IServiceQueryParams) => {
@@ -70,7 +70,7 @@ const ServiceDashboard = (props: IProps) => {
           <ServiceFilterForm filters={getSearchQuery()} onChange={onFiltersChange} />
         </div>
 
-        <ServiceStats stats={serviceStats} />
+        {/*<ServiceStats stats={serviceStats} />*/}
 
         <div>
           <ServiceDashboardControls />
@@ -78,6 +78,7 @@ const ServiceDashboard = (props: IProps) => {
       </div>
 
       <ServiceSearchList items={serviceList} />
+
       <Pager pager={servicePager} onChange={onPagerChange} />
     </>
   );
@@ -88,8 +89,8 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  serviceSearch: (payload: IServiceQueryParams) => dispatch({ type: 'ServiceDashboard/serviceSearch', payload }),
-  serviceGetStats: () => dispatch({ type: 'ServiceDashboard/serviceGetStats' }),
+  search: (payload: IServiceQueryParams) => dispatch({ type: 'v1Service/search', payload }),
+  getStats: () => dispatch({ type: 'v1Service/getStats' }),
   serviceReset: () => dispatch({ type: 'ServiceDashboard/reset' }),
 });
 

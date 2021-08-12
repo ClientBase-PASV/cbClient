@@ -14,7 +14,7 @@ interface IServiceDeleteById {
 interface IProps {
   row: IService;
   open: (arg: ISidepanel) => void;
-  serviceDeleteById: (arg: IServiceDeleteById) => void;
+  deleteById: (arg: IServiceDeleteById) => void;
   queryParams: IServiceQueryParams;
 }
 
@@ -60,7 +60,7 @@ const ActionMenu = (props: IProps) => {
       title: `Do you want to delete?`,
       content: `${service.name}`,
       okType: 'danger',
-      onOk: () => props.serviceDeleteById({ serviceId: service._id, queryParams }),
+      onOk: () => props.deleteById({ serviceId: service._id, queryParams }),
     });
   };
 
@@ -83,7 +83,7 @@ const ActionMenu = (props: IProps) => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   open: (payload: ISidepanel) => dispatch({ type: 'Sidepanel/open', payload }),
-  serviceDeleteById: (payload: IServiceDeleteById) => dispatch({ type: 'ServiceDashboard/serviceDeleteById', payload }),
+  deleteById: (payload: IServiceDeleteById) => dispatch({ type: 'v1Service/deleteById', payload }),
 });
 
 export default connect(null, mapDispatchToProps)(ActionMenu);

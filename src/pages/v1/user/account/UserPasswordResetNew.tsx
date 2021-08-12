@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Form, Input } from 'antd';
 import { LockOutlined } from '@ant-design/icons';
 import { connect, Link } from 'umi';
-import validator from '@/utils/validators';
+import validator from '@/pages/v1/utils/validators';
 import { get } from 'lodash';
 import { IValidResetPasswordLink, IResetPasswordArg } from '@/pages/v1/user/types';
 

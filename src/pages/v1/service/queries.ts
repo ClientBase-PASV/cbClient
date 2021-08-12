@@ -2,29 +2,29 @@ import { get, patch, post, del } from '@/utils/httpMethods';
 import { IService, IServiceQueryParams } from '@/pages/v1/service/types';
 
 export async function queryServiceCreate(payload: any): Promise<any> {
-  return post({ url: '/service', data: payload });
+  return post({ url: '/v1/service', data: payload });
 }
 
 export async function queryServiceGetById(id: string): Promise<any> {
-  return get({ url: `/service/${id}` });
+  return get({ url: `/v1/service/${id}` });
 }
 
 export async function queryServiceUpdateById(payload: { serviceId: string; values: IService }): Promise<any> {
-  return patch({ url: `/service/${payload.serviceId}`, data: payload.values });
+  return patch({ url: `/v1/service/${payload.serviceId}`, data: payload.values });
 }
 
 export async function queryServiceDeleteById(serviceId: string): Promise<any> {
-  return del({ url: `/service/${serviceId}` });
+  return del({ url: `/v1/service/${serviceId}` });
 }
 
 export async function queryServiceSearch(payload: IServiceQueryParams): Promise<any> {
-  return post({ url: '/service/search', data: payload });
+  return post({ url: '/v1/service/search', data: payload });
 }
 
 export async function queryServiceGetAll(): Promise<any> {
-  return get({ url: '/service' });
+  return get({ url: '/v1/service' });
 }
 
 export async function queryServiceGetStats(): Promise<any> {
-  return get({ url: `/service/stats` });
+  return get({ url: `/v1/service/stats` });
 }

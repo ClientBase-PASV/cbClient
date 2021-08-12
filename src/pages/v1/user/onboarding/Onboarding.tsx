@@ -4,7 +4,7 @@ import { connect } from 'umi';
 import { get } from 'lodash';
 import classNames from 'classnames';
 
-import validator from '@/utils/validators';
+import validator from '@/pages/v1/utils/validators';
 import Check from '@/pages/utils/Check';
 import { history } from '@@/core/history';
 

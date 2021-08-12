@@ -63,7 +63,7 @@ const OrderSearchInput = (props: IProps) => {
 
   const options = list.map((el: IOrder) => (
     <Option key={el._id} value={el._id} className="font-weight-bold">
-      {`${el.code}: ${el.description}`}
+      {el.name}
     </Option>
   ));
 

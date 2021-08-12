@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Form, Input } from 'antd';
-import validator from '@/utils/validators';
+import validator from '@/pages/v1/utils/validators';
 import { IClient } from '../types';
 import { get } from 'lodash';
 

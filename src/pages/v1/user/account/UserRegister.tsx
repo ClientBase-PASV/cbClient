@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Checkbox, Col, Form, Input, Row } from 'antd';
 import { LockOutlined } from '@ant-design/icons';
-import validator from '@/utils/validators';
+import validator from '@/pages/v1/utils/validators';
 import { connect, Link } from 'umi';
 import { versionFromProps } from '@/utils/heplers';
 

@@ -48,7 +48,7 @@ const ActionMenu = (props: IProps) => {
   const editHandler = (clientId: string) => {
     props.open({
       title: 'Edit Client',
-      component: 'ClientFormEdit',
+      component: 'v1ClientFormEdit',
       place: 'ClientDashboard',
       width: 800,
       clientId,
