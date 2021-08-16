@@ -20,15 +20,14 @@ const ServiceFormCreateWrapper = (props: IProps) => {
     props.search();
   }, []);
 
-  const isLoading = get(props, 'loadingEffects.v2ServiceForm/create', false);
-  const vendorList = get(props, 'vendorList', []);
+  const isLoading = get(props, 'loadingEffects.v2Service/create', false);
 
-  return <ServiceForm onFinish={onFinish} submitButtonText="Create" isLoading={isLoading} vendorList={vendorList} />;
+  return <ServiceForm onFinish={onFinish} submitButtonText="Create" isLoading={isLoading} />;
 };
 
 const mapStateToProps = (state: any) => ({
   loadingEffects: state.loading.effects,
-  vendorList: state.v2ServiceForm.vendorList,
+  Service: state.v2Service,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

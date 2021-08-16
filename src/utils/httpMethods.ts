@@ -16,7 +16,7 @@ function getHeaders(type: string) {
 }
 
 interface IHttpMethod {
-  method?: 'get' | 'post' | 'patch' | 'delete';
+  method?: 'get' | 'post' | 'patch' | 'delete' | 'put';
   url: string;
   data?: any;
   type?: string;
@@ -26,7 +26,7 @@ const successHandler = (res: any) => {
   const messageTitle = getl(res, 'data.message');
   const silent = getl(res, 'data.silent', false);
 
-  if (!silent) {
+  if (!silent && messageTitle) {
     notification.success({
       message: messageTitle,
       duration: 1,
@@ -41,6 +41,7 @@ const failHandler = (res: any) => {
   const isFail = getl(res, 'response.data.fail', true);
   const statusCode = getl(res, 'response.status', '');
   const statusText = getl(res, 'response.statusText', '');
+  const silent = getl(res, 'response.data.silent', false);
 
   if (statusCode === 500) {
     notification.error({
@@ -50,7 +51,7 @@ const failHandler = (res: any) => {
     });
   }
 
-  if (isFail && messageTitle) {
+  if (!silent && isFail && messageTitle) {
     notification.error({
       key: messageTitle,
       message: messageTitle,
@@ -94,4 +95,8 @@ export function patch({ url, data, type }: IHttpMethod) {
 
 export function del({ url, data }: IHttpMethod) {
   return httpMethod({ method: 'delete', url, data });
+}
+
+export function put({ url, data, type }: IHttpMethod) {
+  return httpMethod({ method: 'put', url, data, type });
 }

@@ -18,7 +18,7 @@ const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 const OrderFormEditWrapper = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
-  const orderId: string = get(props, 'sidepanel.orderId', '');
+  const orderId: string = get(props, 'Sidepanel.orderId', '');
 
   const isLoadingGet = get(props, 'loadingEffects.v2Order/getById', false);
   const isLoadingUpdate = get(props, 'loadingEffects.v2Order/updateById', false);
@@ -44,8 +44,8 @@ const OrderFormEditWrapper = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  sidepanel: state.Sidepanel,
-  orderInfo: state.v2Order.orderInfo,
+  Sidepanel: state.Sidepanel,
+  orderInfo: state.v2Order,
   loadingEffects: state.loading.effects,
 });
 

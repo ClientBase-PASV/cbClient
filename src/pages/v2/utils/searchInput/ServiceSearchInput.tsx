@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Select } from 'antd';
 import { connect } from 'umi';
 import { debounce, get } from 'lodash';
-import { IVendor } from '@/pages/v2/vendor/types';
+import { IService } from '@/pages/v2/service/types';
 import { ILoadingEffects } from '@/types';
 
 const { Option } = Select;
 
 interface IProps {
-  search: (vendorName: string) => void;
+  search: (serviceName: string) => void;
   loadingEffects: ILoadingEffects;
   SearchInput: any;
   onChange?: (value: string) => void;
@@ -19,14 +19,14 @@ interface IProps {
   disabled?: boolean;
 }
 
-const VendorSearchInput = (props: IProps) => {
+const ServiceSearchInput = (props: IProps) => {
   const name = get(props, 'value.name', '');
   const disabled = get(props, 'disabled', false);
   const [selectedName, setSelectedName] = useState(name);
 
-  const isLoading = get(props, 'loadingEffects.SearchInput/vendorSearch', false);
+  const isLoading = get(props, 'loadingEffects.SearchInput/serviceSearch', false);
 
-  const list: IVendor[] = get(props, 'SearchInput.vendor', []);
+  const list: IService[] = get(props, 'SearchInput.service', []);
 
   const onFocus = () => {
     if (!list.length) props.search('');
@@ -50,7 +50,7 @@ const VendorSearchInput = (props: IProps) => {
     );
   };
 
-  const options = list.map((el: IVendor) => (
+  const options = list.map((el: IService) => (
     <Option key={el._id} value={el._id} className="font-weight-bold">
       {el.name}
       {/*<div className="option">*/}
@@ -68,7 +68,7 @@ const VendorSearchInput = (props: IProps) => {
       value={selectedName}
       showSearch
       defaultValue={name}
-      placeholder="Select Vendor"
+      placeholder="Select Service"
       optionFilterProp="children"
       onFocus={onFocus}
       onChange={onChange}
@@ -87,7 +87,7 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  search: (vendorName: string) => dispatch({ type: 'v2SearchInput/vendorSearch', payload: vendorName }),
+  search: (serviceName: string) => dispatch({ type: 'v2SearchInput/serviceSearch', payload: serviceName }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(VendorSearchInput);
+export default connect(mapStateToProps, mapDispatchToProps)(ServiceSearchInput);

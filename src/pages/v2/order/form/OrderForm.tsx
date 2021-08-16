@@ -4,6 +4,7 @@ import validator from '@/pages/v2/utils/validators';
 import { IOrder } from '@/pages/v2/order/types';
 import { get } from 'lodash';
 import ClientSearchInput from '@/pages/v2/utils/searchInput/ClientSearchInput';
+import ServiceSearchInput from '@/pages/v2/utils/searchInput/ServiceSearchInput';
 
 interface IProps {
   isLoading: boolean;
@@ -13,18 +14,16 @@ interface IProps {
 }
 
 const OrderForm = (props: IProps) => {
-  //  const { Option } = Select;
-
   const isLoading = get(props, 'isLoading', false);
 
   return (
-    <Form onFinish={props.onFinish} initialValues={props.initialValues} layout='vertical'>
-      <Form.Item name="name" label="Order Name" rules={[validator.require]}>
-        <Input />
-      </Form.Item>
-
+    <Form onFinish={props.onFinish} initialValues={props.initialValues} layout="vertical">
       <Form.Item label="Client" name="client">
         <ClientSearchInput />
+      </Form.Item>
+
+      <Form.Item label="Service" name="service">
+        <ServiceSearchInput />
       </Form.Item>
 
       <Form.Item name="clientPrice" label="Client Price" rules={[validator.require]}>
@@ -43,8 +42,7 @@ const OrderForm = (props: IProps) => {
         <Input />
       </Form.Item>
 
-
-      <Form.Item name="description" label="Order Description">
+      <Form.Item name="notes" label="Order Notes">
         <Input.TextArea autoSize={{ minRows: 3, maxRows: 6 }} />
       </Form.Item>
 

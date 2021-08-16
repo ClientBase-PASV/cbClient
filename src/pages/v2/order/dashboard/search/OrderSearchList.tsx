@@ -25,7 +25,12 @@ const OrderSearchList = (props: IProps) => {
     {
       title: 'Client',
       key: 'client',
-      render: (row) => <Link to={`/v2/client/${row.client_id}`}>{row.client.name}</Link>,
+      render: (row) => <Link to={`/v2/client/${row.client._id}`}>{row.client.name}</Link>,
+    },
+    {
+      title: 'Service',
+      key: 'service',
+      render: (row) => <Link to={`/v2/service/${row.service._id}`}>{row.service.name}</Link>,
     },
     {
       title: 'clientPrice',
@@ -58,9 +63,9 @@ const OrderSearchList = (props: IProps) => {
       key: 'vendorDebt',
     },
     {
-      title: 'Description',
-      dataIndex: 'description',
-      key: 'description',
+      title: 'Notes',
+      dataIndex: 'notes',
+      key: 'notes',
     },
     {
       title: 'Action',

@@ -5,6 +5,7 @@ import { get } from 'lodash';
 import { queryClientSearch } from '@/pages/v2/client/queries';
 import { queryOrderSearch } from '@/pages/v2/order/queries';
 import { queryVendorSearch } from '@/pages/v2/vendor/queries';
+import { queryServiceSearch } from '@/pages/v2/service/queries';
 
 export interface IState {}
 
@@ -15,6 +16,7 @@ export interface IModel {
     clientSearch: Effect;
     orderSearch: Effect;
     vendorSearch: Effect;
+    serviceSearch: Effect;
     open: Effect;
   };
   reducers: {
@@ -55,6 +57,16 @@ const Model: IModel = {
         type: 'save',
         payload: {
           vendor: get(data, 'payload.items'),
+        },
+      });
+    },
+
+    *serviceSearch({ payload }, { call, put }) {
+      const data = yield call(queryServiceSearch, payload);
+      yield put({
+        type: 'save',
+        payload: {
+          service: get(data, 'payload.items'),
         },
       });
     },

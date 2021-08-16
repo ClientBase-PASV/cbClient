@@ -19,11 +19,10 @@ const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 const ServiceFormEditWrapper = (props: IProps) => {
   const queryParams = get(props, 'location.query', {});
-  const serviceId: string = get(props, 'sidepanel.serviceId', '');
+  const serviceId: string = get(props, 'Sidepanel.serviceId', '');
 
   const isLoadingGet = get(props, 'loadingEffects.v2Service/getById', false);
   const isLoadingUpdate = get(props, 'loadingEffects.v2Service/updateById', false);
-  const vendorList = get(props, 'vendorList', []);
 
   useEffect(() => {
     props.getById(serviceId);
@@ -40,14 +39,13 @@ const ServiceFormEditWrapper = (props: IProps) => {
       onFinish={onFinish}
       initialValues={props.serviceInfo}
       submitButtonText="Update"
-      vendorList={vendorList}
       isLoading={isLoadingUpdate}
     />
   );
 };
 
 const mapStateToProps = (state: any) => ({
-  sidepanel: state.Sidepanel,
+  Sidepanel: state.Sidepanel,
   serviceInfo: state.v2Service,
   loadingEffects: state.loading.effects,
   vendorList: state.v2Service.vendorList,

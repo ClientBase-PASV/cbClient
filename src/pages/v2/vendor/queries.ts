@@ -1,5 +1,6 @@
 import { get, patch, post, del } from '@/utils/httpMethods';
 import { IVendor, IVendorQueryParams } from '@/pages/v2/vendor/types';
+import { IServiceQueryParams } from '@/pages/v2/service/types';
 
 export async function queryVendorCreate(payload: any): Promise<any> {
   return post({ url: '/v2/vendor', data: payload });
@@ -19,6 +20,10 @@ export async function queryVendorDeleteById(vendorId: string): Promise<any> {
 
 export async function queryVendorSearch(payload: IVendorQueryParams): Promise<any> {
   return post({ url: '/v2/vendor/search', data: payload });
+}
+
+export async function queryServiceSearch(payload: IServiceQueryParams): Promise<any> {
+  return post({ url: '/v2/service/search', data: payload });
 }
 
 export async function queryVendorGetStats(): Promise<any> {

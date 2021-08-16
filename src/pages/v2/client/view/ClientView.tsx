@@ -11,6 +11,12 @@ interface IProps {
 const ClientView = (props: IProps) => {
   const clientId = get(props, 'match.params.clientId');
   const name = get(props, 'Client.name', '');
+  const email = get(props, 'Client.email', '');
+  const phone = get(props, 'Client.phone', '');
+  const createdAt = get(props, 'Client.createdAt', '');
+  const notes = get(props, 'Client.notes', '');
+
+  const orderCount = get(props, 'Client.order', []).length;
 
   useEffect(() => {
     props.clientGetById(clientId);
@@ -19,6 +25,13 @@ const ClientView = (props: IProps) => {
   return (
     <div>
       <h1>{name}</h1>
+      <div>{email}</div>
+      <div>{phone}</div>
+      <div>{createdAt}</div>
+      <div>{notes}</div>
+      <hr />
+      <h3>Orders ({orderCount})</h3>
+      ...loading
     </div>
   );
 };

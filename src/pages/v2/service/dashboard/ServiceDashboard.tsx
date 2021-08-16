@@ -29,8 +29,8 @@ interface IProps {
 
 const ServiceDashboard = (props: IProps) => {
   // const serviceStats = get(props, 'ServiceDashboard.serviceStats', {});
-  const serviceList = get(props, 'v2Service.serviceList', []);
-  const servicePager = get(props, 'v2Service.servicePager', {});
+  const serviceList = get(props, 'Service.serviceList', []);
+  const servicePager = get(props, 'Service.servicePager', {});
   const queryParams = get(props, 'location.query', {});
 
   const getSearchQuery = (mixin = {}) => {
@@ -39,8 +39,7 @@ const ServiceDashboard = (props: IProps) => {
   };
 
   useEffect(() => {
-    props.getStats();
-
+    // props.getStats();
     return () => {
       props.serviceReset();
     };
@@ -79,12 +78,12 @@ const ServiceDashboard = (props: IProps) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  ServiceDashboard: state.ServiceDashboard,
+  Service: state.v2Service,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   search: (payload: IServiceQueryParams) => dispatch({ type: 'v2Service/search', payload }),
-  getStats: () => dispatch({ type: 'v2Service/getStats' }),
+  // getStats: () => dispatch({ type: 'v2Service/getStats' }),
   serviceReset: () => dispatch({ type: 'ServiceDashboard/reset' }),
 });
 

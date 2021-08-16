@@ -1,21 +1,18 @@
 import React from 'react';
-import { Button, Form, Input, Select } from 'antd';
+import { Button, Form, Input } from 'antd';
 import validator from '@/pages/v2/utils/validators';
 import { IService } from '@/pages/v2/service/types';
 import { get } from 'lodash';
-import { IVendor } from '@/pages/v2/vendor/types';
+import VendorSearchInput from '@/pages/v2/utils/searchInput/VendorSearchInput';
 
 interface IProps {
   isLoading: boolean;
   onFinish: (values: any) => void;
   submitButtonText: string;
   initialValues?: IService;
-  vendorList: IVendor[]
 }
 
 const ServiceForm = (props: IProps) => {
-  const { Option } = Select;
-
   const isLoading = get(props, 'isLoading', false);
 
   return (
@@ -24,14 +21,8 @@ const ServiceForm = (props: IProps) => {
         <Input />
       </Form.Item>
 
-      <Form.Item name="vendor" label="Vendor" rules={[validator.require]}>
-        <Select>
-          {props.vendorList.map((el) => (
-            <Option key={el._id} value={el._id}>
-              {el.name}
-            </Option>
-          ))}
-        </Select>
+      <Form.Item label="Vendor" name="vendor" rules={[validator.require]}>
+        <VendorSearchInput />
       </Form.Item>
 
       <Form.Item name="vendorPrice" label="Vendor price" rules={[validator.require]}>
