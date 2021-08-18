@@ -39,6 +39,23 @@ import V2OrderFormEditWrapper from '../../v2/order/form/OrderFormEditWrapper';
 import V2ServiceFormCreateWrapper from '../../v2/service/form/ServiceFormCreateWrapper';
 import V2ServiceFormEditWrapper from '../../v2/service/form/ServiceFormEditWrapper';
 
+// ---------------------------------------------------------------------------
+
+import V3ClientFormCreateWrapper from '../../v3/client/form/ClientFormCreateWrapper';
+import V3ClientFormEditWrapper from '../../v3/client/form/ClientFormEditWrapper';
+
+import V3UsersFormDeleteWrapper from '../../v3/user/userSearch/form/UsersFormDeleteWrapper';
+import V3UserFormSendMessageWrapper from '../../v3/user/userSearch/form/UserFormSendMessageWrapper';
+
+import V3VendorFormCreateWrapper from '../../v3/vendor/form/VendorFormCreateWrapper';
+import V3VendorFormEditWrapper from '../../v3/vendor/form/VendorFormEditWrapper';
+
+import V3OrderFormCreateWrapper from '../../v3/order/form/OrderFormCreateWrapper';
+import V3OrderFormEditWrapper from '../../v3/order/form/OrderFormEditWrapper';
+
+import V3ServiceFormCreateWrapper from '../../v3/service/form/ServiceFormCreateWrapper';
+import V3ServiceFormEditWrapper from '../../v3/service/form/ServiceFormEditWrapper';
+
 interface IProps extends ISidepanel {
   Sidepanel: ISidepanel;
   close: () => void;
@@ -85,6 +102,23 @@ const Sidepanel = (props: IProps) => {
 
     v2UsersFormDelete: <V2UsersFormDeleteWrapper />,
     v2UserFormSendMessage: <V2UserFormSendMessageWrapper />,
+
+    // ---------------------------------------------------------------------------
+
+    v3ClientFormCreate: <V3ClientFormCreateWrapper />,
+    v3ClientFormEdit: <V3ClientFormEditWrapper />,
+
+    v3VendorFormCreate: <V3VendorFormCreateWrapper />,
+    v3VendorFormEdit: <V3VendorFormEditWrapper />,
+
+    v3OrderFormCreate: <V3OrderFormCreateWrapper />,
+    v3OrderFormEdit: <V3OrderFormEditWrapper />,
+
+    v3ServiceFormCreate: <V3ServiceFormCreateWrapper />,
+    v3ServiceFormEdit: <V3ServiceFormEditWrapper />,
+
+    v3UsersFormDelete: <V3UsersFormDeleteWrapper />,
+    v3UserFormSendMessage: <V3UserFormSendMessageWrapper />,
   };
 
   const mapping = (c: string): any => {

@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@umijs/preset-react": "^1.8.22",
-    "@umijs/test": "^3.5.15",
-    "antd": "^4.16.10",
+    "@umijs/test": "^3.5.17",
+    "antd": "^4.16.12",
     "axios": "^0.21.1",
     "axios-progress-bar": "^1.2.0",
     "classnames": "^2.3.1",
@@ -22,7 +22,7 @@
     "moment-timezone": "^0.5.33",
     "react": "17.x",
     "react-dom": "17.x",
-    "umi": "^3.5.15"
+    "umi": "^3.5.17"
   },
   "devDependencies": {
     "@react-google-maps/api": "^2.2.0",
@@ -31,7 +31,7 @@
     "@types/lodash": "^4.14.172",
     "@umijs/plugin-sass": "^1.1.1",
     "cross-env": "^7.0.3",
-    "lint-staged": "^11.1.1",
+    "lint-staged": "^11.1.2",
     "prettier": "^2.3.2",
     "umi-plugin-tailwindcss": "^3.0.4",
     "yorkie": "^2.0.0"
