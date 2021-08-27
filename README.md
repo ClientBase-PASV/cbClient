@@ -1,8 +1,3 @@
-# umi project
-
-## Getting Started
-# umi project
-
 ## Getting Started
 
 First, install dependencies,
